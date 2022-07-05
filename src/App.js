@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { AllRoutes } from './Routes/allRoutes';
+import { Route, Routes } from 'react-router-dom';
+import NoMatchPage from './Pages/NoMatchPage';
+import Navbar from './components/Navbar';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense>
+      <Navbar />
+      <Routes>
+        {AllRoutes.map((item, key) => (
+          <Route key={key} element={<item.component />} path={item.path} />
+        ))}
+
+        <Route path="*" element={<NoMatchPage />} />
+      </Routes>
+    </Suspense>
   );
-}
+};
 
 export default App;

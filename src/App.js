@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
-import { AllRoutes } from './Routes/allRoutes';
-import { Route, Routes } from 'react-router-dom';
-import NoMatchPage from './Pages/NoMatchPage';
+import { indexRoutes } from './Routes';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 const App = () => {
@@ -9,11 +8,10 @@ const App = () => {
     <Suspense>
       <Navbar />
       <Routes>
-        {AllRoutes.map((item, key) => (
-          <Route key={key} element={<item.component />} path={item.path} />
+        {indexRoutes.map((item, key) => (
+          <Route key={key} path={item.path} element={<item.component />} />
         ))}
-
-        <Route path="*" element={<NoMatchPage />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </Suspense>
   );

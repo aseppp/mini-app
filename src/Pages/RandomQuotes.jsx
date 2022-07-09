@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const RandomQuotes = () => {
   return <div>RandomQuotes</div>;

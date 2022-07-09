@@ -1,10 +1,10 @@
-import React from 'react';
+import FormAuth from '../components/FormAuth';
 
 const Home = () => {
   return (
-    <>
-      <div>Home</div>
-    </>
+    <main>
+      <FormAuth />
+    </main>
   );
 };
 

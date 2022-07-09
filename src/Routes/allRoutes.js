@@ -17,6 +17,11 @@ export const AllRoutes = [
     component: lazy(() => import('../Pages/RandomQuotes'))
   },
   {
+    path: '/movies',
+    name: 'quotes',
+    component: lazy(() => import('../Pages/Movies'))
+  },
+  {
     path: '/404',
     name: '404',
     component: lazy(() => import('../Pages/NoMatchPage'))

@@ -1,24 +1,45 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { getToken } from '../Utils';
 
 const Navbar = () => {
   const loc = useLocation();
-  const [selected, setSelected] = useState();
+  const token = getToken();
 
   const menu = [
     {
       path: '/profile',
-      icon: <i class="bx bx-user bx-md"></i>,
-      title: 'Profile'
+      icon: <i className="bx bx-user bx-md"></i>,
+      title: 'Profile',
+      dot: '.'
     },
     {
       path: '/quotes',
-      icon: <i class="bx bxs-quote-alt-left bx-md"></i>,
-      title: 'Quotes'
+      icon: <i className="bx bxs-quote-alt-left bx-md"></i>,
+      title: 'Quotes',
+      dot: '.'
+    },
+    {
+      path: '/movies',
+      icon: <i className="bx bx-camera-movie bx-md"></i>,
+      title: 'Movie',
+      dot: '.'
     }
   ];
+
+  const activeStyles = {
+    transition: 'linear 0.3s',
+    color: 'black'
+  };
+
+  const inActiveStyle = {
+    color: 'grey'
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
 
   return (
     <>
@@ -29,23 +50,28 @@ const Navbar = () => {
           </h1>
         ) : (
           <>
-            <div className="absolute bottom-5 w-full">
-              <BottomNavigation
-                className="rounded"
-                value={selected}
-                onChange={(event, newValue) => {
-                  setSelected(newValue);
-                }}
-              >
-                {menu.map((item) => (
-                  <BottomNavigationAction
-                    LinkComponent={Link}
-                    label={item.title}
-                    icon={item.icon}
-                    to={item.path}
-                  />
+            <div className="fixed w-full bottom-3">
+              <div className="flex bg-white justify-center max-w-fit m-auto rounded-full p-3">
+                {menu.map((item, key) => (
+                  <div key={key}>
+                    <NavLink
+                      to={item.path}
+                      style={({ isActive }) =>
+                        isActive ? activeStyles : inActiveStyle
+                      }
+                    >
+                      <div className="flex flex-col items-center ">
+                        <span className="px-2">{item.icon}</span>
+                      </div>
+                    </NavLink>
+                  </div>
                 ))}
-              </BottomNavigation>
+                {token ? (
+                  <button onClick={logout}>
+                    <i className="bx bxs-door-open bx-md text-gray-600"></i>
+                  </button>
+                ) : null}
+              </div>
             </div>
           </>
         )}

@@ -9,6 +9,12 @@ module.exports = {
       colors: {
         'grey-button': '#4F4F4F',
         'grey-text': '#333333'
+      },
+      width: {
+        128: '40rem'
+      },
+      height: {
+        1080: '1080px'
       }
     }
   },

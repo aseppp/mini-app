@@ -4,15 +4,17 @@ import Robot from '../assets/images/robot.png';
 import TextField from '@mui/material/TextField';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { responseGoogle } from '../Utils';
+import Snackbar from '@mui/material/Snackbar';
 
 import { registerAuth, login } from '../store/reducers/auth/actions';
+import { setToken } from '../Utils';
 
 const FormAuth = () => {
   const dispatch = useDispatch();
   const [showLogin, setShowLogin] = useState(false);
-  // const [userData, setUserData] = useState({});
-  // console.log(userData.accessToken);
+  const [openToast, setOpenToast] = useState(false);
+  const [dataUser, setDataUser] = useState({});
+  console.log(dataUser);
 
   const auth = useSelector((state) => state.auth);
 
@@ -26,6 +28,21 @@ const FormAuth = () => {
   const handleShowLogin = (e) => {
     e.preventDefault();
     setShowLogin(!showLogin);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenToast(false);
+  };
+
+  const responseGoogle = (response) => {
+    console.log(response);
+    setDataUser(response);
+    setToken(response.accessToken);
+    window.location.href = '/todo';
   };
 
   const onSubmit = () => {
@@ -46,10 +63,10 @@ const FormAuth = () => {
   };
 
   useEffect(() => {
-    if (auth.isSucceed) {
-      console.log('sukses');
+    if (auth.isAdd) {
+      setOpenToast(true);
     }
-  });
+  }, [auth]);
 
   return (
     <div className="font-poppin-style">
@@ -181,6 +198,14 @@ const FormAuth = () => {
           </div>
         </div>
       </div>
+
+      <Snackbar
+        open={openToast}
+        onClose={handleClose}
+        onRequestClose={() => setOpenToast(!openToast)}
+        message="Register success, please login"
+        autoHideDuration={6000}
+      />
     </div>
   );
 };

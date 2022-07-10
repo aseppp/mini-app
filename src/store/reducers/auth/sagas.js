@@ -10,7 +10,7 @@ export function* AUTH_LOGIN(action) {
     const { data } = yield call(login, action.data);
     yield setToken(data.data.token);
     yield put({ type: SET_STATE, payload: { userInfo: data } });
-    yield (window.location.href = '/profile');
+    yield (window.location.href = '/todo');
     yield put({ type: SET_STATE, payload: { userInfo: data } });
   } catch ({ response }) {
     yield put({ type: SET_STATE, payload: { error: response?.data } });
@@ -23,7 +23,6 @@ export function* AUTH_REGISTER(action) {
 
   try {
     const { data } = yield call(register, action.data);
-    yield setToken(data.data.token);
     yield put({ type: SET_STATE, payload: { userInfo: data } });
     yield put({ type: SET_STATE, payload: { isAdd: true } });
   } catch ({ response }) {

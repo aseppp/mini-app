@@ -7,14 +7,19 @@ export const AllRoutes = [
     component: lazy(() => import('../Pages/Home'))
   },
   {
-    path: '/profile',
-    name: 'profile',
-    component: lazy(() => import('../Pages/Profile'))
+    path: '/todo',
+    name: 'Todo',
+    component: lazy(() => import('../Pages/Todo'))
   },
   {
     path: '/quotes',
     name: 'quotes',
     component: lazy(() => import('../Pages/RandomQuotes'))
+  },
+  {
+    path: '/quotes/:id',
+    name: 'quotes',
+    component: lazy(() => import('../Pages/RandomQuotesByAuthor'))
   },
   {
     path: '/movies',

@@ -8,8 +8,8 @@ const Navbar = () => {
 
   const menu = [
     {
-      path: '/profile',
-      icon: <i className="bx bx-user bx-md"></i>,
+      path: '/todo',
+      icon: <i className="bx bx-notepad bx-md"></i>,
       title: 'Profile',
       dot: '.'
     },
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const activeStyles = {
     transition: 'linear 0.3s',
-    color: 'black'
+    color: 'white'
   };
 
   const inActiveStyle = {
@@ -51,7 +51,7 @@ const Navbar = () => {
         ) : (
           <>
             <div className="fixed w-full bottom-3">
-              <div className="flex bg-white justify-center max-w-fit m-auto rounded-full p-3">
+              <div className="flex bg-black justify-center max-w-fit m-auto md:m-10 rounded-full p-3">
                 {menu.map((item, key) => (
                   <div key={key}>
                     <NavLink
@@ -68,7 +68,7 @@ const Navbar = () => {
                 ))}
                 {token ? (
                   <button onClick={logout}>
-                    <i className="bx bxs-door-open bx-md text-gray-600"></i>
+                    <i className="bx bxs-door-open bx-md text-red-600"></i>
                   </button>
                 ) : null}
               </div>

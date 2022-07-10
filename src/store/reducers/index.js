@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
 import auth from './auth/reducer';
+import quote from './randomQuotes/reducer';
 
 const createRootReducer = () =>
   combineReducers({
-    auth
+    auth,
+    quote
   });
 
 export default createRootReducer;

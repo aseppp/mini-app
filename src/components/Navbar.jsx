@@ -1,10 +1,11 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { getToken } from '../Utils';
 
 const Navbar = () => {
   const loc = useLocation();
   const token = getToken();
+  const navigate = useNavigate();
 
   const menu = [
     {
@@ -38,7 +39,7 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.removeItem('token');
-    window.location.href = '/';
+    navigate('/');
   };
 
   return (

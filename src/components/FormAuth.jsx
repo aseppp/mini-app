@@ -44,7 +44,7 @@ const FormAuth = () => {
     console.log(response);
     setDataUser(response);
     setToken(response.accessToken);
-    navigate('/movies');
+    navigate('/todo');
   };
 
   const onSubmit = () => {
@@ -67,10 +67,7 @@ const FormAuth = () => {
   useEffect(() => {
     if (auth.isAdd) {
       setOpenToast(true);
-    }
-
-    if (getToken) {
-      navigate('/movies');
+      navigate('/todo');
     }
   }, [auth]);
 

@@ -17,8 +17,18 @@ const MoviesDetail = () => {
 
   return (
     <div>
-      <div>
-        <h1>hello</h1>
+      <div className="relative w-full h-30 bg-black ">
+        {/* <div> */}
+        <img
+          src={`${process.env.REACT_APP_TMDB_IMAGE_URL}/${detailMovie?.backdrop_path}`}
+          alt=""
+          className="bg-no-repeat w-full h-30 object-cover opacity-20 object-top"
+        />
+        {/* </div> */}
+
+        <div>
+          <h1 className="absolute">hello</h1>
+        </div>
       </div>
     </div>
   );

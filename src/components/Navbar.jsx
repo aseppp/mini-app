@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav>
+      <nav className="z-20">
         {loc.pathname === '/404' ? (
           <h1 className="uppercase text-2xl m-2 font-space-mono absolute md:m-6">
             404 not found

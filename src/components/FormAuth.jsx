@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Snackbar from '@mui/material/Snackbar';
 
 import { registerAuth, login } from '../store/reducers/auth/actions';
-import { setToken } from '../Utils';
+import { setToken, getToken } from '../Utils';
+import { useNavigate } from 'react-router-dom';
 
 const FormAuth = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
   const [openToast, setOpenToast] = useState(false);
   const [dataUser, setDataUser] = useState({});
@@ -42,7 +44,7 @@ const FormAuth = () => {
     console.log(response);
     setDataUser(response);
     setToken(response.accessToken);
-    window.location.href = '/todo';
+    navigate('/movies');
   };
 
   const onSubmit = () => {
@@ -65,6 +67,10 @@ const FormAuth = () => {
   useEffect(() => {
     if (auth.isAdd) {
       setOpenToast(true);
+    }
+
+    if (getToken) {
+      navigate('/movies');
     }
   }, [auth]);
 

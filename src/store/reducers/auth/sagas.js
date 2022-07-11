@@ -2,6 +2,9 @@ import { all, put, takeLatest, call } from 'redux-saga/effects';
 import { login, register } from '../../../services/auth';
 import { LOGIN, REGISTER, SET_STATE } from './actions';
 import { setToken } from '../../../Utils';
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
 
 export function* AUTH_LOGIN(action) {
   yield put({ type: SET_STATE, payload: { loading: true } });
@@ -10,7 +13,7 @@ export function* AUTH_LOGIN(action) {
     const { data } = yield call(login, action.data);
     yield setToken(data.data.token);
     yield put({ type: SET_STATE, payload: { userInfo: data } });
-    yield (window.location.href = '/todo');
+    yield navigate('/movies');
     yield put({ type: SET_STATE, payload: { userInfo: data } });
   } catch ({ response }) {
     yield put({ type: SET_STATE, payload: { error: response?.data } });

@@ -23,8 +23,13 @@ export const AllRoutes = [
   },
   {
     path: '/movies',
-    name: 'quotes',
+    name: 'Movies',
     component: lazy(() => import('../Pages/Movies'))
+  },
+  {
+    path: '/movies/:id',
+    name: 'quotes',
+    component: lazy(() => import('../Pages/MoviesDetail'))
   },
   {
     path: '/404',

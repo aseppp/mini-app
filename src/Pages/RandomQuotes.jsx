@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getRandomQuotes } from '../store/reducers/randomQuotes/actions';
 
 const RandomQuotes = () => {
@@ -21,7 +21,7 @@ const RandomQuotes = () => {
       <div className="w-full h-screen flex content-center flex-col">
         <div className="md:w-128 m-auto flex flex-col items-center p-5">
           <div className="flex items-center gap-8 md:gap-10">
-            <div className="md:block w-24 h-60 bg-yellow-400 rounded-full"></div>
+            <div className="md:block w-10 h-60 bg-yellow-400 rounded-full"></div>
             <span className="text-xl font-poppin-style font-medium">
               {'"'}
               {quote.data ? quote.data.content : ''}

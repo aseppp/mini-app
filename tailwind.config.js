@@ -11,7 +11,8 @@ module.exports = {
         'grey-text': '#333333'
       },
       width: {
-        128: '40rem'
+        128: '40rem',
+        130: '60rem'
       },
       height: {
         1080: '1080px'

@@ -51,7 +51,7 @@ const Navbar = () => {
         ) : (
           <>
             <div className="fixed w-full bottom-3">
-              <div className="flex bg-black justify-center max-w-fit m-auto md:m-10 rounded-full p-3">
+              <div className="flex bg-black justify-center max-w-fit m-auto rounded-full p-3">
                 {menu.map((item, key) => (
                   <div key={key}>
                     <NavLink

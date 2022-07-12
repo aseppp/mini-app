@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-20">
+      <nav>
         {loc.pathname === '/404' ? (
           <h1 className="uppercase text-2xl m-2 font-space-mono absolute md:m-6">
             404 not found
@@ -52,7 +52,7 @@ const Navbar = () => {
         ) : (
           <>
             <div className="fixed w-full bottom-3">
-              <div className="flex bg-black justify-center max-w-fit m-auto rounded-full p-3">
+              <div className="flex bg-black justify-center max-w-fit m-auto md:m-5 rounded-full p-3">
                 {menu.map((item, key) => (
                   <div key={key}>
                     <NavLink

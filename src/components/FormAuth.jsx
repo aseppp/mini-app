@@ -72,7 +72,7 @@ const FormAuth = () => {
   }, [auth]);
 
   return (
-    <div className="font-poppin-style">
+    <div className="font-poppin-style mb-10">
       <div className="Card w-full flex content-center h-screen flex-col">
         <div className="m-auto w-11/12 md:w-1/4 border-lg rounded py-8 px-3">
           <div className="flex flex-col items-center">

@@ -13,7 +13,7 @@ const TvMovies = () => {
   }, [dispatch]);
 
   return (
-    <div className=" w-full flex overflow-scroll gap-5 pb-8 mb-52">
+    <div className=" w-full flex overflow-scroll gap-5 pb-8">
       {dataMoviesTv?.map((item, index) => (
         <Link to={`/movies/${item.id}`} key={index}>
           <div className="w-40">
@@ -22,7 +22,7 @@ const TvMovies = () => {
               alt=""
               className="rounded"
             />
-            <h1 className="text-center font-semibold">{item.original_name}</h1>
+            <h1 className="text-center font-semibold">{item.title}</h1>
           </div>
         </Link>
       ))}

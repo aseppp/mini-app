@@ -16,7 +16,7 @@ const Discover = () => {
         <Trending />
       </div>
 
-      <h1 className="my-5 font-bold text-2xl">Tv Movies</h1>
+      <h1 className="my-5 font-bold text-2xl">Top Rated</h1>
       <div className="rounded">
         <TvMovies />
       </div>

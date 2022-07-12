@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'space-mono': ['Space Mono', 'monospace'],
-        'poppin-style': ['Poppins', 'sans-serif']
+        'poppin-style': ['Poppins', 'sans-serif'],
+        'Source-sans-pro': ['Source Sans Pro', 'sans-serif']
       },
       colors: {
         'grey-button': '#4F4F4F',
@@ -12,7 +13,9 @@ module.exports = {
       },
       width: {
         128: '40rem',
-        130: '60rem'
+        130: '60rem',
+        150: '90rem',
+        1080: '1080px'
       },
       height: {
         30: '40rem',

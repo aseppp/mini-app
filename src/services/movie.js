@@ -19,7 +19,7 @@ export const getMoviesTrending = () => {
 };
 
 export const getMoviesTV = () => {
-  return axios.get(`${process.env.REACT_APP_TMDB_URL}/discover/tv`, {
+  return axios.get(`${process.env.REACT_APP_TMDB_URL}/movie/top_rated`, {
     params: {
       api_key: process.env.REACT_APP_TMDB_KEY
     }

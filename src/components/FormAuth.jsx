@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Snackbar from '@mui/material/Snackbar';
 
 import { registerAuth, login } from '../store/reducers/auth/actions';
-import { setToken, getToken } from '../Utils';
+import { setToken } from '../Utils';
 import { useNavigate } from 'react-router-dom';
 
 const FormAuth = () => {

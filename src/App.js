@@ -1,12 +1,13 @@
 import React, { Suspense } from 'react';
 import { indexRoutes } from './Routes';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 const App = () => {
+  const loc = useLocation();
   return (
     <Suspense>
-      <Navbar />
+      {loc.pathname === '/movies/:id' ? null : <Navbar />}
       <Routes>
         {indexRoutes.map((item, key) => (
           <Route key={key} path={item.path} element={<item.component />} />

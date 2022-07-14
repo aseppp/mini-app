@@ -2,7 +2,6 @@ import { all, put, takeLatest, call } from 'redux-saga/effects';
 import { login, register } from '../../../services/auth';
 import { LOGIN, REGISTER, SET_STATE } from './actions';
 import { setToken } from '../../../Utils';
-import { useNavigate } from 'react-router-dom';
 
 export function* AUTH_LOGIN(action) {
   yield put({ type: SET_STATE, payload: { loading: true } });

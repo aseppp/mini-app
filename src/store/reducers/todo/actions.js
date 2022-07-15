@@ -11,3 +11,12 @@ export const addTodo = defaultActionCreator(ADD_TODO, 'data');
 
 export const GET_TODOS = 'GET_TODOS';
 export const getTodos = defaultActionCreator(GET_TODOS, 'param');
+
+export const DELETE_TODOS = 'DELETE_TODOS';
+export const deleteTodos = defaultActionCreator(DELETE_TODOS, 'id');
+
+export const EDIT_TODO = 'EDIT_TODO';
+export const editTodo = defaultActionCreator(EDIT_TODO, 'id', 'data');
+
+export const GET_TODO_BY_ID = 'GET_TODO_BY_ID';
+export const getTodoById = defaultActionCreator(GET_TODO_BY_ID, 'id');

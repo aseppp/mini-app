@@ -12,6 +12,11 @@ export const AllRoutes = [
     component: lazy(() => import('../Pages/Todo'))
   },
   {
+    path: '/todos/:id',
+    name: 'Todo',
+    component: lazy(() => import('../Pages/TodoUpdate'))
+  },
+  {
     path: '/quotes',
     name: 'quotes',
     component: lazy(() => import('../Pages/RandomQuotes'))

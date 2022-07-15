@@ -9,6 +9,7 @@ export function* AUTH_LOGIN(action) {
   try {
     const { data } = yield call(login, action.data);
     yield setToken(data.data.token);
+    yield (window.location.href = '/todo');
     yield put({ type: SET_STATE, payload: { userInfo: data } });
     yield put({ type: SET_STATE, payload: { userInfo: data } });
   } catch ({ response }) {
